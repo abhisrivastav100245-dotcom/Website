@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced FAQs</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f3f6fb;
+    }
+
+    header {
+      background-color: #3f51b5;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      color: #3f51b5;
+      margin-bottom: 30px;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .search-box input {
+      width: 90%;
+      max-width: 400px;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .faq-item {
+      background: white;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      padding: 18px 24px;
+      cursor: pointer;
+      background: #eef2ff;
+      font-size: 18px;
+      color: #333;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      background: #e0e7ff;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 24px;
+      font-size: 16px;
+      color: #555;
+      transition: all 0.4s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 16px 24px 24px 24px;
+    }
+
+    .faq-toggle {
+      font-size: 22px;
+      color: #3f51b5;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    @media (max-width: 600px) {
+      .faq-question {
+        font-size: 16px;
+      }
+
+      .faq-answer {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Frequently Asked Questions</h1>
+    <p>Answers to your most common queries</p>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Top FAQs</h2>
+
+    <!-- Search -->
+    <div class="search-box">
+      <input type="text" id="faqSearch" placeholder="Search FAQs...">
+    </div>
+
+    <!-- FAQ List -->
+    <div class="faq-item">
+      <div class="faq-question">
+        What is the fee structure for different courses?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Our fees start from ₹35,000/year. Scholarships and discounts are available based on merit and early registration.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Do you offer demo classes before admission?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Yes! Free demo classes are available. Book your demo via our 'Demo Class' page or contact us.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        When do new batches start?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Batches start every 1st and 15th of the month for regular and crash courses.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Is hostel or PG facility available?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Yes, we assist students with nearby PG and hostel options. Inquire at the admin office after admission.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        What study material do you provide?
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Printed notes, online test series, MCQ practice sheets, and previous year papers are provided.
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h3 style="text-align:center; color:#3f51b5; margin-top:50px;">Add Your Question</h3>
+<div style="max-width:600px; margin:auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+  <input type="text" id="newQuestion" placeholder="Enter your question" style="width:100%; padding:10px; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;" />
+  <textarea id="newAnswer" placeholder="Enter the answer" style="width:100%; padding:10px; height:100px; border-radius:6px; border:1px solid #ccc;"></textarea>
+  <button onclick="addFaq()" style="margin-top:10px; background-color:#3f51b5; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer;">Add FAQ</button>
+</div>
+
+  <script>
+    const questions = document.querySelectorAll('.faq-question');
+    const searchInput = document.getElementById('faqSearch');
+
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // FAQ Search
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.toLowerCase();
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(term) ? 'block' : 'none';
+      });
+    });
+
+    function addFaq() {
+  const question = document.getElementById('newQuestion').value.trim();
+  const answer = document.getElementById('newAnswer').value.trim();
+
+  if (question === '' || answer === '') {
+    alert("Please enter both question and answer.");
+    return;
+  }
+
+  const container = document.querySelector('.container');
+  const newItem = document.createElement('div');
+  newItem.classList.add('faq-item');
+
+  newItem.innerHTML = `
+    <div class="faq-question">
+      ${question}
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer">${answer}</div>
+  `;
+
+  container.appendChild(newItem);
+  document.getElementById('newQuestion').value = '';
+  document.getElementById('newAnswer').value = '';
+
+  newItem.querySelector('.faq-question').addEventListener('click', () => {
+    newItem.classList.toggle('active');
+  });
+}
+
+  </script>
+
+</body>
+</html>
