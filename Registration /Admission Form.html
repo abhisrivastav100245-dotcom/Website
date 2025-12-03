@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration / Admission Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #333;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 12px 12px 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: transparent;
+      outline: none;
+    }
+
+    .form-group label {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      background: white;
+      padding: 0 4px;
+      font-size: 16px;
+      color: #888;
+      transition: 0.3s;
+      pointer-events: none;
+    }
+
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group select:focus + label,
+    .form-group select:not([value=""]) + label {
+      top: -10px;
+      left: 10px;
+      font-size: 13px;
+      color: #3f51b5;
+    }
+
+    .form-group select {
+      appearance: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background: #3f51b5;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #303f9f;
+    }
+
+    @media (max-width: 500px) {
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Admission / Registration Form</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" name="fullname" id="fullname" placeholder=" " required>
+        <label for="fullname">Full Name</label>
+      </div>
+
+      <div class="form-group">
+        <input type="email" name="email" id="email" placeholder=" " required>
+        <label for="email">Email Address</label>
+      </div>
+
+      <div class="form-group">
+        <input type="tel" name="phone" id="phone" placeholder=" " required>
+        <label for="phone">Phone Number</label>
+      </div>
+
+      <div class="form-group">
+        <select name="course" id="course" required>
+          <option value="" disabled selected hidden></option>
+          <option value="bsc">B.Sc</option>
+          <option value="bcom">B.Com</option>
+          <option value="ba">B.A</option>
+          <option value="msc">M.Sc</option>
+        </select>
+        <label for="course">Select Course</label>
+      </div>
+
+      <div class="form-group">
+        <input type="date" name="dob" id="dob" placeholder=" " required>
+        <label for="dob">Date of Birth</label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="address" id="address" placeholder=" " required>
+        <label for="address">Address</label>
+      </div>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+</body>
+</html>
