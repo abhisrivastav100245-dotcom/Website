@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    h2 {
+      text-align: center;
+      color: #3f51b5;
+    }
+    .input-group {
+      margin: 15px 0;
+      position: relative;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin: 5px 0;
+    }
+    .input-group span {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e40a6;
+    }
+    .toggle-links {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .toggle-links a {
+      color: #3f51b5;
+      text-decoration: none;
+    }
+    .toggle-links a:hover {
+      text-decoration: underline;
+    }
+    .password-strength {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #ff4081;
+    }
+    .dashboard {
+      background: #e0f7fa;
+      padding: 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .tab-btn {
+      background-color: #ff4081;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      text-align: center;
+    }
+    .tab-btn:hover {
+      background-color: #f50057;
+    }
+    .section {
+      display: none;
+      margin-top: 20px;
+    }
+    .active-tab {
+      display: block;
+    }
+    .dashboard-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #ff4081;
+      color: white;
+      text-align: center;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Page -->
+  <div id="loginPage" class="container">
+    <h2>Login</h2>
+    <div class="input-group">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+    </div>
+    <div class="input-group">
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <span onclick="togglePasswordVisibility('loginPassword')">👁️</span>
+    </div>
+    <button onclick="login()">Login</button>
+    <div class="toggle-links">
+      <a href="#" onclick="toggleToSignup()">Don't have an account? Sign Up</a>
+    </div>
+  </div>
+
+  <!-- Signup Page -->
+  <div id="signupPage" class="container" style="display:none;">
+    <h2>Sign Up</h2>
+    <div class="input-group">
+      <input type="text" id="signupName" placeholder="Full Name" required>
+    </div>
+    <div class="input-group">
+      <input type="email" id="signupEmail" placeholder="Email" required>
+    </div>
+    <div class="input-group">
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <span onclick="togglePasswordVisibility('signupPassword')">👁️</span>
+    </div>
+    <div class="password-strength" id="passwordStrength"></div>
+    <button onclick="signup()">Sign Up</button>
+    <div class="toggle-links">
+      <a href="#" onclick="toggleToLogin()">Already have an account? Login</a>
+    </div>
+  </div>
+
+  <!-- Student Dashboard -->
+  <div id="dashboard" class="dashboard" style="display:none;">
+    <h2>Welcome, <span id="studentName"></span></h2>
+    <button class="tab-btn" onclick="switchTab('studyMaterial')">Study Material</button>
+    <button class="tab-btn" onclick="switchTab('testResults')">Test Results</button>
+    <button class="tab-btn" onclick="switchTab('schedule')">Class Schedule</button>
+    <button class="tab-btn" onclick="switchTab('attendance')">Attendance</button>
+
+    <div id="studyMaterial" class="section active-tab">
+      <h3>Study Material</h3>
+      <ul>
+        <li><a href="#">Math Study Material</a></li>
+        <li><a href="#">Physics Notes</a></li>
+        <li><a href="#">Chemistry Study Guide</a></li>
+      </ul>
+    </div>
+    <div id="testResults" class="section">
+      <h3>Test Results</h3>
+      <ul>
+        <li>Math Test: 85%</li>
+        <li>Physics Test: 78%</li>
+        <li>Chemistry Test: 92%</li>
+      </ul>
+    </div>
+    <div id="schedule" class="section">
+      <h3>Class Schedule</h3>
+      <ul>
+        <li>Monday: 9 AM - 12 PM (Math)</li>
+        <li>Tuesday: 10 AM - 1 PM (Physics)</li>
+        <li>Thursday: 11 AM - 2 PM (Chemistry)</li>
+      </ul>
+    </div>
+    <div id="attendance" class="section">
+      <h3>Attendance</h3>
+      <p>Your attendance this month:</p>
+      <p>Math: 90%</p>
+      <p>Physics: 95%</p>
+      <p>Chemistry: 85%</p>
+    </div>
+
+    <a href="#" class="dashboard-btn" onclick="logout()">Logout</a>
+    <button class="dashboard-btn" onclick="toggleTheme()">Toggle Dark Mode</button>
+  </div>
+
+  <script>
+    // Password visibility toggle
+    function togglePasswordVisibility(inputId) {
+      const input = document.getElementById(inputId);
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    // Switch tabs on dashboard
+    function switchTab(tabId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active-tab'));
+      document.getElementById(tabId).classList.add('active-tab');
+    }
+
+    // Toggle dark mode
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      document.getElementById('dashboard').classList.toggle('dark-mode');
+    }
+
+    // Password strength meter
+    function checkPasswordStrength(password) {
+      const strengthMeter = document.getElementById('passwordStrength');
+      const regexWeak = /[a-zA-Z0-9]{6,}/;
+      const regexMedium = /[a-zA-Z0-9!@#$%^&*()]{8,}/;
+      const regexStrong = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/;
+
+      if (password.match(regexStrong)) {
+        strengthMeter.textContent = 'Strong';
+        strengthMeter.style.color = 'green';
+      } else if (password.match(regexMedium)) {
+        strengthMeter.textContent = 'Medium';
+        strengthMeter.style.color = 'orange';
+      } else if (password.match(regexWeak)) {
+        strengthMeter.textContent = 'Weak';
+        strengthMeter.style.color = 'red';
+      } else {
+        strengthMeter.textContent = '';
+      }
+    }
+
+    // Handle Login
+    function login() {
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      if (!email || !password) {
+        alert("Please fill in both fields");
+        return;
+      }
+
+      if (email === "student@example.com" && password === "password123") {
+        localStorage.setItem("studentName", "John Doe");
+        localStorage.setItem("isLoggedIn", "true");
+        showDashboard();
+      } else {
+        alert("Invalid email or password");
+      }
+    }
+
+    // Handle Signup
+    function signup() {
+      const name = document.getElementById('signupName').value;
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+
+      if (!name || !email || !password) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      alert("Signup successful! Please verify your email.");
+      toggleToLogin();
+    }
+
+    // Display Dashboard
+    function showDashboard() {
+      const studentName = localStorage.getItem("studentName");
+      document.getElementById("studentName").textContent = studentName;
+      document.getElementById("loginPage").style.display = 'none';
+      document.getElementById("signupPage").style.display = 'none';
+      document.getElementById("dashboard").style.display = 'flex';
+    }
+
+    // Logout
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      document.getElementById("dashboard").style.display = 'none';
+      document.getElementById("loginPage").style.display = 'block';
+    }
+
+    // Toggle between Login and Signup page
+    function toggleToSignup() {
+      document.getElementById("loginPage").style.display = 'none';
+      document.getElementById("signupPage").style.display = 'block';
+    }
+
+    function toggleToLogin() {
+      document.getElementById("loginPage").style.display = 'block';
+      document.getElementById("signupPage").style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
