@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Demo Classes</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f4f8;
+      color: #333;
+    }
+
+    header {
+      background: #3f51b5;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #3f51b5;
+      margin-bottom: 10px;
+    }
+
+    .video-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .main-video, .video-thumbnails {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .video-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .video-thumbnails iframe {
+      height: 120px;
+    }
+
+    .form-section {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .form-section form {
+      display: grid;
+      gap: 20px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 14px;
+      font-size: 16px;
+      background: #3f51b5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #303f9f;
+    }
+
+    @media (max-width: 768px) {
+      .video-section {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Free Demo Classes</h1>
+    <p>Try our recorded or book a live class before enrolling!</p>
+  </header>
+
+  <div class="container">
+    <section class="video-section">
+      <div class="main-video">
+        <h2>Watch a Full Sample Class</h2>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      </div>
+      <div class="video-thumbnails">
+        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/3tmd-ClpJxA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <h2>Book a Live Demo Class</h2>
+      <form>
+        <input type="text" placeholder="Your Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="tel" placeholder="Mobile Number" required />
+        <select required>
+          <option value="">Select Course</option>
+          <option>Mathematics</option>
+          <option>Science</option>
+          <option>English</option>
+          <option>Computer</option>
+        </select>
+        <input type="date" required />
+        <textarea rows="3" placeholder="Any specific query or topic? (Optional)"></textarea>
+        <button type="submit">Book Live Demo</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>
