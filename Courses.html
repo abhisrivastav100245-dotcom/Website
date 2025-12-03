@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses & Programs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            color: #1e90ff;
+            font-size: 36px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .course {
+            background-color: #fff;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .course h2 {
+            color: #1e90ff;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .course-details ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .course-details li {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .course-details li strong {
+            color: #333;
+        }
+
+        .course-details .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1e90ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .course-details .download-link:hover {
+            background-color: #005bb5;
+        }
+
+        footer {
+            background-color: #1e90ff;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        footer ul {
+            list-style-type: none;
+        }
+
+        footer li {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .course {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .course h2 {
+                font-size: 24px;
+            }
+
+            footer h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .course-details ul li {
+                font-size: 14px;
+            }
+
+            footer ul {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📚 Courses & Programs</h1>
+        <p>Explore our expertly designed courses to help you excel in your academic journey. Choose the course that fits your needs.</p>
+    </header>
+
+    <section class="course">
+        <h2>1. NEET (National Eligibility cum Entrance Test)</h2>
+        <div class="course-details">
+            <ul>
+                <li><strong>Duration:</strong> 12 Months</li>
+                <li><strong>Mode:</strong> Online / Offline</li>
+                <li><strong>Batch Timing:</strong> Weekdays (5:00 PM - 7:00 PM)</li>
+                <li><strong>Fee Structure:</strong> ₹50,000</li>
+            </ul>
+            <h3>Syllabus Overview:</h3>
+            <ul>
+                <li><strong>Physics:</strong> Mechanics, Thermodynamics, Optics</li>
+                <li><strong>Chemistry:</strong> Organic, Inorganic, Physical Chemistry</li>
+                <li><strong>Biology:</strong> Botany, Zoology, Human Anatomy</li>
+            </ul>
+            <a href="#" class="download-link">Download NEET Syllabus PDF</a>
+        </div>
+    </section>
+
+    <section class="course">
+        <h2>2. JEE (Joint Entrance Examination)</h2>
+        <div class="course-details">
+            <ul>
+                <li><strong>Duration:</strong> 18 Months</li>
+                <li><strong>Mode:</strong> Online / Offline</li>
+                <li><strong>Batch Timing:</strong> Weekends (10:00 AM - 1:00 PM)</li>
+                <li><strong>Fee Structure:</strong> ₹70,000</li>
+            </ul>
+            <h3>Syllabus Overview:</h3>
+            <ul>
+                <li><strong>Mathematics:</strong> Algebra, Calculus, Trigonometry</li>
+                <li><strong>Physics:</strong> Mechanics, Electricity & Magnetism, Waves</li>
+                <li><strong>Chemistry:</strong> Physical Chemistry, Inorganic Chemistry, Organic Chemistry</li>
+            </ul>
+            <a href="#" class="download-link">Download JEE Syllabus PDF</a>
+        </div>
+    </section>
+
+    <section class="course">
+        <h2>3. UPSC (Union Public Service Commission)</h2>
+        <div class="course-details">
+            <ul>
+                <li><strong>Duration:</strong> 24 Months</li>
+                <li><strong>Mode:</strong> Online / Offline</li>
+                <li><strong>Batch Timing:</strong> Monday to Friday (8:00 AM - 10:00 AM)</li>
+                <li><strong>Fee Structure:</strong> ₹1,00,000</li>
+            </ul>
+            <h3>Syllabus Overview:</h3>
+            <ul>
+                <li><strong>General Studies:</strong> Indian History, Geography, Polity, Economy</li>
+                <li><strong>Optional Subjects:</strong> Anthropology, Public Administration</li>
+                <li><strong>Essay Writing & Ethics:</strong> Developing Analytical Skills, Ethics in Governance</li>
+            </ul>
+            <a href="#" class="download-link">Download UPSC Syllabus PDF</a>
+        </div>
+    </section>
+
+    <section class="course">
+        <h2>4. GATE (Graduate Aptitude Test in Engineering)</h2>
+        <div class="course-details">
+            <ul>
+                <li><strong>Duration:</strong> 10 Months</li>
+                <li><strong>Mode:</strong> Online / Offline</li>
+                <li><strong>Batch Timing:</strong> Weekdays (6:00 PM - 8:00 PM)</li>
+                <li><strong>Fee Structure:</strong> ₹40,000</li>
+            </ul>
+            <h3>Syllabus Overview:</h3>
+            <ul>
+                <li><strong>Engineering Mathematics:</strong> Linear Algebra, Calculus</li>
+                <li><strong>Core Subjects:</strong> Mechanical, Civil, Electrical, Computer Science</li>
+                <li><strong>Aptitude & General Knowledge:</strong> Logical Reasoning, Verbal Ability</li>
+            </ul>
+            <a href="#" class="download-link">Download GATE Syllabus PDF</a>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Why Choose Us?</h3>
+        <ul>
+            <li>Expert Faculty with years of experience</li>
+            <li>Flexible Mode (Online/Offline) for convenience</li>
+            <li>Personalized Attention & Mentoring</li>
+            <li>Well-structured course material and mock tests</li>
+            <li>Regular doubt clearing sessions</li>
+        </ul>
+    </footer>
+
+</body>
+</html>
