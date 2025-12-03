@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Testimonials</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      background: #3f51b5;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #3f51b5;
+      margin-bottom: 30px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .testimonial-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card h3 {
+      margin: 5px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .testimonial-card p {
+      font-size: 15px;
+      color: #555;
+    }
+
+    .rank-badge {
+      background: #ff9800;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .video-testimonials {
+      margin-top: 60px;
+    }
+
+    .video-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 24px;
+      }
+
+      iframe {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>What Our Students Say</h1>
+    <p>Real feedback, real results</p>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Student Success Stories</h2>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student photo">
+        <h3>Priya Sharma</h3>
+        <p>"Thanks to the amazing faculty, I was able to crack NEET with AIR 152. Highly recommended!"</p>
+        <div class="rank-badge">Rank: AIR 152 (NEET)</div>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student photo">
+        <h3>Rahul Verma</h3>
+        <p>"The demo sessions helped me decide and I'm glad I joined. Best decision for my IIT prep."</p>
+        <div class="rank-badge">Rank: AIR 245 (JEE)</div>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student photo">
+        <h3>Shalini Mehta</h3>
+        <p>"Very supportive mentors and well-structured materials. I topped my school boards with 97%!"</p>
+        <div class="rank-badge">Topper: CBSE 12th Boards</div>
+      </div>
+    </div>
+
+    <div class="video-testimonials">
+      <h2 class="section-title">Toppers' Interviews</h2>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
